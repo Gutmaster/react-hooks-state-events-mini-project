@@ -1,9 +1,21 @@
 import React from "react";
+import Task from "./Task"
 
-function TaskList() {
+
+function TaskList({ tasks, deleteTask, curCat = 'All' }) {
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {tasks.map((task) =>
+        (task.category === curCat || curCat === 'All') ? (
+          <Task
+            className="task"
+            key={task.text}
+            text={task.text}
+            category={task.category}
+            deleteTask={deleteTask}
+          />
+        ) : null
+      )}
     </div>
   );
 }
