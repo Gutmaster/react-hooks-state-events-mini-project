@@ -6,6 +6,7 @@ function NewTaskForm({categories, onTaskFormSubmit}) {
 
   function onNewTaskNameChange(event){
     setNewTaskName(event.target.value)
+    event.target.text = event.target.value
   }
 
   function onNewTaskCategoryChange(event){
